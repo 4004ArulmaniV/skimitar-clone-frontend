@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CheckCircle2, Loader2 } from "lucide-react";
+import API_BASE_URL from "../../config/api";
 
 function EnrollForm({ course, onClose }) {
   const [errors, setErrors] = useState({});
@@ -53,7 +54,7 @@ function EnrollForm({ course, onClose }) {
       setIsSubmitting(true);
 
       const response = await fetch(
-        "http://localhost:5000/api/enrollments",
+        `${API_BASE_URL}/enrollments`,
         {
           method: "POST",
           headers: {

@@ -9,6 +9,7 @@ import ContactTable from "../components/Admin/ContactTable";
 import EnrollmentTable from "../components/Admin/EnrollmentTable";
 import ContactPage from "../components/Admin/ContactPage";
 import EnrollmentPage from "../components/Admin/EnrollmentPage";
+import API_BASE_URL from "../config/api";
 
 function Admin() {
 
@@ -48,7 +49,7 @@ function Admin() {
         // Contacts
 
         const contactResponse = await fetch(
-          "http://localhost:5000/api/contact",
+          `${API_BASE_URL}/contact`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -79,7 +80,7 @@ function Admin() {
 
         const enrollmentResponse =
           await fetch(
-            "http://localhost:5000/api/enrollments",
+            `${API_BASE_URL}/enrollments`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -142,7 +143,7 @@ function Admin() {
 
       const response = await fetch(
 
-        `http://localhost:5000/api/contact/${id}/read`,
+        `${API_BASE_URL}/contact/${id}/read`,
 
         {
           method: "PUT",
@@ -201,7 +202,7 @@ function Admin() {
 
       const response = await fetch(
 
-        `http://localhost:5000/api/contact/${id}`,
+        `${API_BASE_URL}/contact/${id}`,
 
         {
           method: "DELETE",
@@ -253,7 +254,7 @@ function Admin() {
 
       const response = await fetch(
 
-        `http://localhost:5000/api/enrollments/${id}`,
+        `${API_BASE_URL}/enrollments/${id}`,
 
         {
           method: "DELETE",
@@ -301,7 +302,7 @@ function Admin() {
 
       const response = await fetch(
 
-        `http://localhost:5000/api/enrollments/${id}/status`,
+        `${API_BASE_URL}/enrollments/${id}/status`,
 
         {
 
@@ -374,7 +375,7 @@ await Promise.all([
 ...unreadContacts.map(contact=>
 
 axios.put(
-`http://localhost:5000/api/contact/${contact._id}/read`,
+`${API_BASE_URL}/contact/${id}/read`,
 {},
 {
 headers:{
@@ -389,7 +390,7 @@ Authorization:`Bearer ${token}`
 ...unreadEnrollments.map(enrollment=>
 
 axios.put(
-`http://localhost:5000/api/enrollments/${enrollment._id}/read`,
+`${API_BASE_URL}/enrollments/${enrollment._id}/read`,
 {},
 {
 headers:{
