@@ -12,9 +12,9 @@ function ServiceCard({ service }) {
         hover:shadow-2xl
         transition-all
         duration-300
-        overflow-hidden
         border
         border-gray-200
+        relative
       "
     >
       {/* Image */}
@@ -31,7 +31,7 @@ function ServiceCard({ service }) {
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-6 relative z-10 bg-white">
         <h3 className="text-2xl font-bold mb-3">
           {service.title}
         </h3>

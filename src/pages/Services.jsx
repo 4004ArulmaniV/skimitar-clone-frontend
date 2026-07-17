@@ -36,29 +36,29 @@ function Services() {
         </section>
 
         {/* Services */}
+        <section className="py-20">
 
-        <FadeIn>
+<div className="max-w-7xl mx-auto px-6">
 
-          <section className="py-20">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <div className="max-w-7xl mx-auto px-6">
+{services.map((service) => (
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<FadeIn key={service.id}>
 
-                {services.map((service) => (
-                  <ServiceCard
-                    key={service.id}
-                    service={service}
-                  />
-                ))}
+<ServiceCard
+  service={service}
+/>
 
-              </div>
+</FadeIn>
 
-            </div>
+))}
 
-          </section>
+</div>
 
-        </FadeIn>
+</div>
+
+</section>
         <FAQ
   badge="Services FAQ"
   title="Frequently Asked Service Questions"

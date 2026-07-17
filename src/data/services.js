@@ -17,7 +17,7 @@ const services = [
   {
     id: "plc-programming",
     title: "PLC Programming",
-    icon: FaMicrochip,
+    icon: FaShieldAlt,
     shortDescription:
       "Professional PLC programming and industrial automation solutions.",
     features: [
