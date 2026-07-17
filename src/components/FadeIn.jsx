@@ -6,18 +6,25 @@ function FadeIn({ children, delay = 0 }) {
     <motion.div
       initial={{
         opacity: 0,
-        y: 20,
+        y: 30,
       }}
 
-      animate={{
+      whileInView={{
         opacity: 1,
         y: 0,
       }}
 
+      viewport={{
+        once: true,
+        amount: 0.1,
+      }}
+
       transition={{
-        duration: 0.5,
+        duration: 0.6,
         delay,
       }}
+
+      className="will-change-transform"
     >
       {children}
     </motion.div>
