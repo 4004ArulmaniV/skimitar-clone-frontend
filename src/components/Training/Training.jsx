@@ -1,6 +1,9 @@
+import { useState } from "react";
 import FadeIn from "../FadeIn";
 import CourseCard from "./CourseCard";
 import courses from "./CourseData";
+import EnrollModal from "../Enrollment/EnrollModal";
+
 import {
   GraduationCap,
   Cpu,
@@ -36,12 +39,16 @@ const benefits = [
 ];
 
 function Training() {
+
+  const [selectedCourse, setSelectedCourse] = useState(null);
+
   return (
     <section
       id="training"
       className="py-24 bg-gray-50 scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-6">
+
         {/* Heading */}
 
         <FadeIn>
@@ -108,10 +115,22 @@ function Training() {
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {courses.map((course) => (
             <FadeIn key={course.id}>
-              <CourseCard course={course} />
+              <CourseCard
+                course={course}
+                onEnroll={() => setSelectedCourse(course)}
+              />
             </FadeIn>
           ))}
         </div>
+
+        {/* Single Shared Modal */}
+
+        <EnrollModal
+          isOpen={!!selectedCourse}
+          course={selectedCourse}
+          onClose={() => setSelectedCourse(null)}
+        />
+
       </div>
     </section>
   );
